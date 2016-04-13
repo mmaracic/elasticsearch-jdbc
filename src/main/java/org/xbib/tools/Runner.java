@@ -15,23 +15,38 @@
  */
 package org.xbib.tools;
 
-import java.io.FileInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 
 public class Runner {
 
-    public static void main(String[] args) {
-        try {
-            Class clazz = Class.forName(args[0]);
-            CommandLineInterpreter commandLineInterpreter = (CommandLineInterpreter) clazz.newInstance();
-            InputStream in = args.length > 1 ? new FileInputStream(args[1]) : System.in;
-            commandLineInterpreter.run("args", in);
-            in.close();
-        } catch (Throwable e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-        System.exit(0);
-    }
-
+	private static Runner instance = null;
+    
+	private Runner() {}
+   
+	public static Runner getInstance() {
+	   if(instance == null) {
+			instance = new Runner();
+		}
+		return instance;
+	}
+   
+	/**
+	 * Index data into ES instance
+	 * @param query (string) - ES JSON query
+	 */
+	public void indexData(String query) {
+	   try {
+          JDBCImporter jdbcImporter = new JDBCImporter();
+          InputStream in = new ByteArrayInputStream(query.getBytes(Charset.defaultCharset()));
+          jdbcImporter.run("args", in);
+          in.close();
+       } catch (Throwable e) {
+           e.printStackTrace();
+           System.exit(1);
+       }
+       System.exit(0);
+	}
+   
 }
