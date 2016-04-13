@@ -44,9 +44,9 @@ public class Runner {
           in.close();
        } catch (Throwable e) {
            e.printStackTrace();
-           System.exit(1);
+           //System.exit(1);
        }
-       System.exit(0);
+       //System.exit(0);
 	}
    
 }
