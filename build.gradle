@@ -9,7 +9,6 @@ version = '2.3.1.0'
 println "Host: " + java.net.InetAddress.getLocalHost()
 println "Gradle: " + gradle.gradleVersion + " JVM: " + org.gradle.internal.jvm.Jvm.current() + " Groovy: " + GroovySystem.getVersion()
 println "Build: group: '${project.group}', name: '${project.name}', version: '${project.version}'"
-println "Timestamp: " + java.time.Instant.now().atZone(java.time.ZoneId.systemDefault()).toString()
 
 ext {
     pluginName = 'elasticsearch-jdbc'
@@ -94,10 +93,6 @@ dependencies {
     integrationTestCompile 'org.testng:testng:' + versions.testng
     integrationTestCompile 'org.elasticsearch:elasticsearch:' + versions.elasticsearch
     integrationTestCompile 'net.java.dev.jna:jna:' + versions.jna
-    // for distribution
-    driverJars('org.xbib.jdbc:jdbc-driver-csv:' + versions.'jdbc-driver-csv') {
-        exclude group: 'org.apache.logging.log4j'
-    }
     driverJars 'org.apache.derby:derby:' + versions.derby
     driverJars 'com.h2database:h2:' + versions.h2
     driverJars 'org.hsqldb:hsqldb:' + versions.hsqldb
@@ -210,4 +205,18 @@ uploadArchives {
             }
         }
     }
+    
+ task generatePom << {
+    pom {
+        project {
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'local'
+                }
+            }
+        }
+    }.writeTo("$buildDir/pom.xml")
+}
 }

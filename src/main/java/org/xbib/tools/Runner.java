@@ -19,8 +19,13 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Runner {
 
+    private final static Logger logger = LogManager.getLogger("importer.jdbc");
+	
 	private static Runner instance = null;
     
 	private Runner() {}
@@ -43,8 +48,8 @@ public class Runner {
           jdbcImporter.run("args", in);
           in.close();
        } catch (Throwable e) {
-           e.printStackTrace();
-           //System.exit(1);
+    	   logger.error("Error in Runner: ", e);
+           System.exit(1);
        }
        //System.exit(0);
 	}

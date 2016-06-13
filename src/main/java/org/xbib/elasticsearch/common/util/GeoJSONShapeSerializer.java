@@ -7,10 +7,14 @@ import com.spatial4j.core.shape.jts.JtsGeometry;
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.geom.LineString;
+import com.vividsolutions.jts.geom.MultiLineString;
 import com.vividsolutions.jts.geom.MultiPoint;
 import com.vividsolutions.jts.geom.MultiPolygon;
 import com.vividsolutions.jts.geom.Point;
 import com.vividsolutions.jts.geom.Polygon;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 
 import java.io.IOException;
@@ -23,6 +27,8 @@ import java.io.IOException;
  * { "type": "Point", "coordinates": [100.0, 0.0] }
  */
 public class GeoJSONShapeSerializer {
+	
+	private final static Logger logger = LogManager.getLogger(GeoJSONShapeSerializer.class);
 
     private GeoJSONShapeSerializer() {
     }
@@ -40,15 +46,18 @@ public class GeoJSONShapeSerializer {
             Geometry geometry = ((JtsGeometry) shape).getGeom();
             if (geometry instanceof Point) {
                 serializePoint((Point) geometry, builder);
-            } else if (geometry instanceof LineString) {
-                serializeLineString((LineString) geometry, builder);
-            } else if (geometry instanceof Polygon) {
-                serializePolygon((Polygon) geometry, builder);
             } else if (geometry instanceof MultiPoint) {
                 serializeMultiPoint((MultiPoint) geometry, builder);
+            } else if (geometry instanceof LineString) {
+                serializeLineString((LineString) geometry, builder);
+            } else if (geometry instanceof MultiLineString) {
+                serializeMultiLineString((MultiLineString) geometry, builder);
+            } else if (geometry instanceof Polygon) {
+                serializePolygon((Polygon) geometry, builder);
             } else if (geometry instanceof MultiPolygon) {
                 serializeMulitPolygon((MultiPolygon) geometry, builder);
             } else {
+            	logger.info("Geometry not supported");
                 throw new IllegalArgumentException("Geometry type [" + geometry.getGeometryType() + "] not supported");
             }
         } else if (shape instanceof com.spatial4j.core.shape.Point) {
@@ -56,6 +65,7 @@ public class GeoJSONShapeSerializer {
         } else if (shape instanceof Rectangle) {
             serializeRectangle((Rectangle) shape, builder);
         } else {
+        	logger.info("Shape not supported");
             throw new IllegalArgumentException("Shape type [" + shape.getClass().getSimpleName() + "] not supported");
         }
     }
@@ -154,6 +164,31 @@ public class GeoJSONShapeSerializer {
             }
             builder.endArray();
         }
+    }
+    
+    /**
+     * Serializes the given {@link MultiLineString}
+     *
+     * @param multiLineString MultiLineString that will be serialized
+     * @param builder XContentBuilder it will be serialized to
+     * @throws IOException Thrown if an error occurs while writing to the XContentBuilder
+     */
+    private static void serializeMultiLineString(MultiLineString multiLineString, XContentBuilder builder) throws IOException {
+        builder.field("type", "MultiLineString")
+                .startArray("coordinates");
+        try {
+	        for (int i = 0; i < multiLineString.getNumGeometries(); i++) {
+	            builder.startArray();
+	            //serializeLineString((LineString) multiLineString.getGeometryN(i), builder);
+	            for (Coordinate coordinate : multiLineString.getGeometryN(i).getCoordinates()) {
+	                serializeCoordinate(coordinate, builder);
+	            }
+	            builder.endArray();
+	        }
+        } catch(Exception e) {
+        	logger.error("Building MultiLineString: ", e);
+        }
+        builder.endArray();
     }
 
     /**

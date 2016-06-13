@@ -13,6 +13,11 @@
 			<distribution>local</distribution>
 		</license>
 	</licenses>
+
+	<properties>
+		<geotools.version>12-RC1</geotools.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.hsqldb</groupId>
@@ -91,6 +96,25 @@
 			<artifactId>postgresql</artifactId>
 			<version>9.3-1104-jdbc41</version>
 		</dependency>
+
+		<!--GeoTools -->
+		<dependency>
+			<groupId>org.geotools</groupId>
+			<artifactId>gt-shapefile</artifactId>
+			<version>${geotools.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.geotools</groupId>
+			<artifactId>gt-epsg-hsql</artifactId>
+			<version>${geotools.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.spatial4j</groupId>
+			<artifactId>spatial4j</artifactId>
+			<version>0.5</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

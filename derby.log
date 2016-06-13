@@ -1,0 +1,176 @@
+----------------------------------------------------------------
+Mon Apr 11 11:56:52 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-04c0-9b52-000006b42948 
+on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+Loaded from file:/C:/Users/dorians/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 11 11:56:53 CEST 2016:
+Shutting down instance a816c00e-0154-04c0-9b52-000006b42948 on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+----------------------------------------------------------------
+Mon Apr 11 11:56:53 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 7fa040ff-0154-04c0-9b52-000006b42948 
+on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+Loaded from file:/C:/Users/dorians/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 11 11:56:54 CEST 2016:
+Shutting down instance 7fa040ff-0154-04c0-9b52-000006b42948 on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+----------------------------------------------------------------
+Mon Apr 11 11:56:54 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 6fe201f0-0154-04c0-9b52-000006b42948 
+on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+Loaded from file:/C:/Users/dorians/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 11 11:56:54 CEST 2016:
+Shutting down instance 6fe201f0-0154-04c0-9b52-000006b42948 on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+----------------------------------------------------------------
+Mon Apr 11 11:56:55 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance e30582e4-0154-04c0-9b52-000006b42948 
+on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+Loaded from file:/C:/Users/dorians/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 11 11:56:55 CEST 2016:
+Shutting down instance e30582e4-0154-04c0-9b52-000006b42948 on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+----------------------------------------------------------------
+Mon Apr 11 11:56:56 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 904d03d8-0154-04c0-9b52-000006b42948 
+on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+Loaded from file:/C:/Users/dorians/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 11 11:56:56 CEST 2016:
+Shutting down instance 904d03d8-0154-04c0-9b52-000006b42948 on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+----------------------------------------------------------------
+Mon Apr 11 11:57:03 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 77b884cc-0154-04c0-9b52-000006b42948 
+on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+Loaded from file:/C:/Users/dorians/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 11 11:57:03 CEST 2016:
+Shutting down instance 77b884cc-0154-04c0-9b52-000006b42948 on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+----------------------------------------------------------------
+Mon Apr 11 11:57:08 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 5454c623-0154-04c0-9b52-000006b42948 
+on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+Loaded from file:/C:/Users/dorians/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 11 11:57:09 CEST 2016:
+Shutting down instance 5454c623-0154-04c0-9b52-000006b42948 on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+----------------------------------------------------------------
+Mon Apr 11 11:57:13 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance c3d5477a-0154-04c0-9b52-000006b42948 
+on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+Loaded from file:/C:/Users/dorians/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 11 11:57:14 CEST 2016:
+Shutting down instance c3d5477a-0154-04c0-9b52-000006b42948 on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+----------------------------------------------------------------
+Mon Apr 11 11:57:18 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 363a08d1-0154-04c0-9b52-000006b42948 
+on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+Loaded from file:/C:/Users/dorians/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 11 11:57:19 CEST 2016:
+Shutting down instance 363a08d1-0154-04c0-9b52-000006b42948 on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+----------------------------------------------------------------
+Mon Apr 11 11:57:23 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 3d6689dc-0154-04c0-9b52-000006b42948 
+on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+Loaded from file:/C:/Users/dorians/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 11 11:57:36 CEST 2016:
+Shutting down instance 3d6689dc-0154-04c0-9b52-000006b42948 on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+----------------------------------------------------------------
+Mon Apr 11 11:57:41 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 4c1ecb33-0154-04c0-9b52-000006b42948 
+on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 
+Loaded from file:/C:/Users/dorians/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_79-b15
+user.dir=C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Apr 11 12:57:54 IDT 2016:
+Shutting down instance 4c1ecb33-0154-04c0-9b52-000006b42948 on database directory memory:C:\Users\dorians\Documents\other\geokoder\elasticsearch\elasticsearch-jdbc-master\myDB with class loader sun.misc.Launcher$AppClassLoader@47ac1adf 

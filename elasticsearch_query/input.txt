@@ -1,0 +1,17 @@
+{
+    "type": "jdbc",
+    "jdbc": {
+        "url": "jdbc:postgresql://vz-vm-db01:5432/geokoder",
+        "user": "geokoder",
+        "password": "geokoder",
+        "sql": "select * from geocoder_metamodel.attribute_mapping",
+        "treat_binary_as_string" : true,
+        "elasticsearch": {
+           "cluster": "elasticsearch",
+           "host": "localhost",
+           "port": 9300
+        },
+        "index": "attribute_mapping",
+        "type": "attribute_mapping"
+     }
+}

@@ -17,7 +17,13 @@ package org.xbib.elasticsearch.common.util;
 
 import com.spatial4j.core.context.SpatialContext;
 import com.spatial4j.core.context.jts.JtsSpatialContext;
+import com.spatial4j.core.context.jts.JtsSpatialContextFactory;
 import com.spatial4j.core.shape.Shape;
+import com.spatial4j.core.shape.jts.JtsGeometry;
+import com.vividsolutions.jts.io.WKTReader;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.elasticsearch.common.xcontent.ToXContent;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentParser;
@@ -38,6 +44,8 @@ import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 
 public class PlainKeyValueStreamListener<K, V> implements KeyValueStreamListener<K, V> {
 
+	private final static Logger logger = LogManager.getLogger(PlainKeyValueStreamListener.class);
+	
     private final static Pattern p = Pattern.compile("^(.*)\\[(.*?)\\]$");
 
     /**
@@ -168,12 +176,36 @@ public class PlainKeyValueStreamListener<K, V> implements KeyValueStreamListener
             try {
                 String s = values.get(i).toString();
                 // geo content?
-                if (shouldDetectGeo && s.startsWith("POLYGON(") || s.startsWith("POINT(")) {
-                    SpatialContext ctx = JtsSpatialContext.GEO;
+                if (shouldDetectGeo && s.startsWith("POINT(") || s.startsWith("POLYGON(") || s.startsWith("LINESTRING(")) {
+                	
+                	//logger.info("Version 1.0");
+                	
+                	SpatialContext ctx = JtsSpatialContext.GEO;
                     Shape shape = ctx.readShapeFromWkt(s);
+                    
                     XContentBuilder builder = jsonBuilder();
                     builder.startObject();
-                    GeoJSONShapeSerializer.serialize(shape, builder);
+                    GeoJSONShapeSerializer.serialize(shape, builder); 
+                    builder.endObject();
+                    s = builder.string();
+                }
+                if(shouldDetectGeo && s.startsWith("MULTIPOINT(") || s.startsWith("MULTIPOLYGON(") || s.startsWith("MULTILINESTRING(")) {
+                	
+                	//logger.info("Version 2.0");
+                	
+                	JtsGeometry shape = null;
+                	try {
+	                	WKTReader reader = new WKTReader();
+	                	JtsSpatialContextFactory factory = new JtsSpatialContextFactory();
+	                	JtsSpatialContext ctx = factory.newSpatialContext();
+	                	shape = ctx.makeShape(reader.read(s));
+                	} catch(Exception e) {
+                		logger.error("Multi geometry error: ", e);
+                	}
+                	  	
+                	XContentBuilder builder = jsonBuilder();
+                    builder.startObject();
+                    GeoJSONShapeSerializer.serialize(shape, builder); 
                     builder.endObject();
                     s = builder.string();
                 }
