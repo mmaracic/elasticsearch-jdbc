@@ -78,11 +78,11 @@ public class GeoJSONShapeSerializer {
      * @throws IOException Thrown if an error occurs while writing to the XContentBuilder
      */
     private static void serializeRectangle(Rectangle rectangle, XContentBuilder builder) throws IOException {
-        builder.field("type", "Envelope")
+        builder.startObject().field("type", "Envelope")
                 .startArray("coordinates")
                 .startArray().value(rectangle.getMinX()).value(rectangle.getMaxY()).endArray()
                 .startArray().value(rectangle.getMaxX()).value(rectangle.getMinY()).endArray()
-                .endArray();
+                .endArray().endObject();
     }
 
     /**
@@ -93,8 +93,12 @@ public class GeoJSONShapeSerializer {
      * @throws IOException Thrown if an error occurs while writing to the XContentBuilder
      */
     private static void serializePoint(Point point, XContentBuilder builder) throws IOException {
-        builder.field("type", "Point")
-                .startArray("coordinates")
+//        builder.startObject().field("type", "Point")
+//                .startArray("coordinates")
+//                .value(point.getX()).value(point.getY())
+//                .endArray().endObject();
+        
+        builder.startArray()
                 .value(point.getX()).value(point.getY())
                 .endArray();
     }
@@ -107,10 +111,15 @@ public class GeoJSONShapeSerializer {
      * @throws IOException Thrown if an error occurs while writing to the XContentBuilder
      */
     private static void serializePoint(com.spatial4j.core.shape.Point point, XContentBuilder builder) throws IOException {
-        builder.field("type", "Point")
-                .startArray("coordinates")
+//        builder.startObject().field("type", "Point")
+//                .startArray("coordinates")
+//                .value(point.getX()).value(point.getY())
+//                .endArray().endObject();
+        
+        builder.startArray()
                 .value(point.getX()).value(point.getY())
                 .endArray();
+
     }
 
     /**
@@ -121,12 +130,12 @@ public class GeoJSONShapeSerializer {
      * @throws IOException Thrown if an error occurs while writing to the XContentBuilder
      */
     private static void serializeLineString(LineString lineString, XContentBuilder builder) throws IOException {
-        builder.field("type", "LineString")
+        builder.startObject().field("type", "LineString")
                 .startArray("coordinates");
         for (Coordinate coordinate : lineString.getCoordinates()) {
             serializeCoordinate(coordinate, builder);
         }
-        builder.endArray();
+        builder.endArray().endObject();
     }
 
     /**
@@ -137,10 +146,10 @@ public class GeoJSONShapeSerializer {
      * @throws IOException Thrown if an error occurs while writing to the XContentBuilder
      */
     private static void serializePolygon(Polygon polygon, XContentBuilder builder) throws IOException {
-        builder.field("type", "Polygon")
+        builder.startObject().field("type", "Polygon")
                 .startArray("coordinates");
         serializePolygonCoordinates(polygon, builder);
-        builder.endArray();
+        builder.endArray().endObject();
     }
 
     /**
@@ -174,7 +183,7 @@ public class GeoJSONShapeSerializer {
      * @throws IOException Thrown if an error occurs while writing to the XContentBuilder
      */
     private static void serializeMultiLineString(MultiLineString multiLineString, XContentBuilder builder) throws IOException {
-        builder.field("type", "MultiLineString")
+        builder.startObject().field("type", "MultiLineString")
                 .startArray("coordinates");
         try {
 	        for (int i = 0; i < multiLineString.getNumGeometries(); i++) {
@@ -188,7 +197,7 @@ public class GeoJSONShapeSerializer {
         } catch(Exception e) {
         	logger.error("Building MultiLineString: ", e);
         }
-        builder.endArray();
+        builder.endArray().endObject();
     }
 
     /**
@@ -199,14 +208,14 @@ public class GeoJSONShapeSerializer {
      * @throws IOException Thrown if an error occurs while writing to the XContentBuilder
      */
     private static void serializeMulitPolygon(MultiPolygon multiPolygon, XContentBuilder builder) throws IOException {
-        builder.field("type", "MultiPolygon")
+        builder.startObject().field("type", "MultiPolygon")
                 .startArray("coordinates");
         for (int i = 0; i < multiPolygon.getNumGeometries(); i++) {
             builder.startArray();
             serializePolygonCoordinates((Polygon) multiPolygon.getGeometryN(i), builder);
             builder.endArray();
         }
-        builder.endArray();
+        builder.endArray().endObject();
     }
 
     /**
@@ -217,12 +226,12 @@ public class GeoJSONShapeSerializer {
      * @throws IOException Thrown if an error occurs while writing to the XContentBuilder
      */
     private static void serializeMultiPoint(MultiPoint multiPoint, XContentBuilder builder) throws IOException {
-        builder.field("type", "MultiPoint")
+        builder.startObject().field("type", "MultiPoint")
                 .startArray("coordinates");
         for (Coordinate coordinate : multiPoint.getCoordinates()) {
             serializeCoordinate(coordinate, builder);
         }
-        builder.endArray();
+        builder.endArray().endObject();
     }
 
     /**

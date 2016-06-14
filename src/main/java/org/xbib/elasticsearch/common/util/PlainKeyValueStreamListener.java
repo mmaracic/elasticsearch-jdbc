@@ -184,9 +184,9 @@ public class PlainKeyValueStreamListener<K, V> implements KeyValueStreamListener
                     Shape shape = ctx.readShapeFromWkt(s);
                     
                     XContentBuilder builder = jsonBuilder();
-                    builder.startObject();
+                    //builder.startObject();
                     GeoJSONShapeSerializer.serialize(shape, builder); 
-                    builder.endObject();
+                    //builder.endObject();
                     s = builder.string();
                 }
                 if(shouldDetectGeo && s.startsWith("MULTIPOINT(") || s.startsWith("MULTIPOLYGON(") || s.startsWith("MULTILINESTRING(")) {
@@ -204,9 +204,9 @@ public class PlainKeyValueStreamListener<K, V> implements KeyValueStreamListener
                 	}
                 	  	
                 	XContentBuilder builder = jsonBuilder();
-                    builder.startObject();
+                    //builder.startObject();
                     GeoJSONShapeSerializer.serialize(shape, builder); 
-                    builder.endObject();
+                    //builder.endObject();
                     s = builder.string();
                 }
                 // JSON content?
