@@ -45,7 +45,7 @@ public class Runner {
 	   try {
           JDBCImporter jdbcImporter = new JDBCImporter();
           InputStream in = new ByteArrayInputStream(query.getBytes(Charset.defaultCharset()));
-          jdbcImporter.run("args", in);
+          jdbcImporter.run("args.json", in);
           in.close();
        } catch (Throwable e) {
     	   logger.error("Error in Runner: ", e);

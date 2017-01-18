@@ -15,9 +15,6 @@
  */
 package org.xbib.elasticsearch.common.cron;
 
-import org.elasticsearch.common.logging.ESLogger;
-import org.elasticsearch.common.logging.ESLoggerFactory;
-
 import java.util.Date;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.Future;
@@ -27,13 +24,17 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 /**
  * Scheduled thread-pool executor implementation that leverages a CronExpression
  * to calculate future execution times for scheduled tasks.
  */
 public class CronThreadPoolExecutor extends ScheduledThreadPoolExecutor implements CronExecutorService {
 
-    private final static ESLogger logger = ESLoggerFactory.getLogger("jdbc");
+    private final static Logger logger = LoggerFactory.getLogger(CronThreadPoolExecutor.class);
 
     /**
      * Constructs a new CronThreadPoolExecutor.

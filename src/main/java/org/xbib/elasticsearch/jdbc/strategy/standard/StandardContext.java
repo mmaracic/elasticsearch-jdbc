@@ -250,7 +250,7 @@ public class StandardContext<S extends JDBCSource> implements Context<S, Sink> {
             if (!file.exists() || file.canWrite()) {
                 Writer writer = new FileWriter(statefile);
                 FormatDateTimeFormatter formatter = Joda.forPattern("dateOptionalTime");
-                Settings.Builder settingsBuilder = Settings.settingsBuilder()
+                Settings.Builder settingsBuilder = Settings.builder()
                         .put(settings)
                         .put("metrics.lastexecutionstart", formatter.printer().print(source.getMetric().getLastExecutionStart()))
                         .put("metrics.lastexecutionend", formatter.printer().print(source.getMetric().getLastExecutionEnd()))
@@ -305,7 +305,7 @@ public class StandardContext<S extends JDBCSource> implements Context<S, Sink> {
         List<SQLCommand> sql = SQLCommand.parse(params);
         String rounding = XContentMapValues.nodeStringValue(params.get("rounding"), null);
         int scale = XContentMapValues.nodeIntegerValue(params.get("scale"), 2);
-        boolean autocommit = XContentMapValues.nodeBooleanValue(params.get("autocommit"), false);
+        boolean autocommit = XContentMapValues.nodeBooleanValue(params.get("autocommit"));
         int fetchsize = 10;
         String fetchSizeStr = XContentMapValues.nodeStringValue(params.get("fetchsize"), null);
         if ("min".equals(fetchSizeStr)) {
@@ -328,15 +328,15 @@ public class StandardContext<S extends JDBCSource> implements Context<S, Sink> {
         TimeValue maxretrywait = XContentMapValues.nodeTimeValue(params.get("max_retries_wait"), TimeValue.timeValueSeconds(30));
         String resultSetType = XContentMapValues.nodeStringValue(params.get("resultset_type"), "TYPE_FORWARD_ONLY");
         String resultSetConcurrency = XContentMapValues.nodeStringValue(params.get("resultset_concurrency"), "CONCUR_UPDATABLE");
-        boolean shouldIgnoreNull = XContentMapValues.nodeBooleanValue(params.get("ignore_null_values"), false);
-        boolean shouldDetectGeo = XContentMapValues.nodeBooleanValue(params.get("detect_geo"), true);
-        boolean shouldDetectJson = XContentMapValues.nodeBooleanValue(params.get("detect_json"), true);
-        boolean shouldPrepareDatabaseMetadata = XContentMapValues.nodeBooleanValue(params.get("prepare_database_metadata"), false);
-        boolean shouldPrepareResultSetMetadata = XContentMapValues.nodeBooleanValue(params.get("prepare_resultset_metadata"), false);
+        boolean shouldIgnoreNull = XContentMapValues.nodeBooleanValue(params.get("ignore_null_values"));
+        boolean shouldDetectGeo = XContentMapValues.nodeBooleanValue(params.get("detect_geo"));
+        boolean shouldDetectJson = XContentMapValues.nodeBooleanValue(params.get("detect_json"));
+        boolean shouldPrepareDatabaseMetadata = XContentMapValues.nodeBooleanValue(params.get("prepare_database_metadata"));
+        boolean shouldPrepareResultSetMetadata = XContentMapValues.nodeBooleanValue(params.get("prepare_resultset_metadata"));
         Map<String, Object> columnNameMap = (Map<String, Object>) params.get("column_name_map");
         int queryTimeout = XContentMapValues.nodeIntegerValue(params.get("query_timeout"), 1800);
         Map<String, Object> connectionProperties = (Map<String, Object>) params.get("connection_properties");
-        boolean shouldTreatBinaryAsString = XContentMapValues.nodeBooleanValue(params.get("treat_binary_as_string"), false);
+        boolean shouldTreatBinaryAsString = XContentMapValues.nodeBooleanValue(params.get("treat_binary_as_string"));
         source.setRounding(rounding)
                 .setScale(scale)
                 .setStatements(sql)

@@ -30,7 +30,6 @@ import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.common.xcontent.ToXContent;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.index.VersionType;
-import org.elasticsearch.indices.IndexAlreadyExistsException;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.xbib.elasticsearch.common.metrics.SinkMetric;
@@ -112,11 +111,11 @@ public class StandardSink<C extends StandardContext> implements Sink<C> {
                 }
                 setIndex(index);
                 setType(type);
-                try {
+//                try {
                     createIndex(settings, index, type);
-                } catch (IndexAlreadyExistsException e) {
-                    logger.warn(e.getMessage());
-                }
+//                } catch (IndexAlreadyExistsException e) {
+//                    logger.warn(e.getMessage());
+//                }
             }
             ingest.waitForCluster("YELLOW", TimeValue.timeValueSeconds(30));
         }
@@ -222,7 +221,7 @@ public class StandardSink<C extends StandardContext> implements Sink<C> {
             request.ttl(Long.parseLong(object.meta(ControlKeys._ttl.name())));
         }
         if (logger.isTraceEnabled()) {
-            logger.trace("adding bulk index action {}", request.source().toUtf8());
+            logger.trace("adding bulk index action {}", request.source().toString());
         }
         ingest.bulkIndex(request);
     }
@@ -315,7 +314,7 @@ public class StandardSink<C extends StandardContext> implements Sink<C> {
     }
 
     private Ingest createIngest(Settings settings) {
-        Settings.Builder settingsBuilder = Settings.settingsBuilder()
+        Settings.Builder settingsBuilder = Settings.builder()
                 .put("cluster.name", settings.get("elasticsearch.cluster.name", settings.get("elasticsearch.cluster", "elasticsearch")))
                 .putArray("host", settings.getAsArray("elasticsearch.host"))
                 .put("port", settings.getAsInt("elasticsearch.port", 9300))

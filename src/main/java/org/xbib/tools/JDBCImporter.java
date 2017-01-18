@@ -47,7 +47,6 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import static org.elasticsearch.common.settings.Settings.settingsBuilder;
 
 public class JDBCImporter
         extends AbstractPipeline<SettingsPipelineRequest>
@@ -80,6 +79,7 @@ public class JDBCImporter
 
     public JDBCImporter setSettings(Settings newSettings) {
         logger.debug("settings = {}", newSettings.getAsMap());
+       
         settings = newSettings;
         String statefile = settings.get("jdbc.statefile");
         if (statefile != null) {
@@ -87,7 +87,7 @@ public class JDBCImporter
                 File file = new File(statefile);
                 if (file.exists() && file.isFile() && file.canRead()) {
                     InputStream stateFileInputStream = new FileInputStream(file);
-                    settings = settingsBuilder().put(settings).loadFromStream("statefile", stateFileInputStream).build();
+                    settings =  Settings.builder().put(settings).loadFromStream("statefile", stateFileInputStream).build();
                     logger.info("loaded state from {}, settings {}", statefile, settings.getAsMap());
                 } else {
                     logger.warn("can't read from {}, skipped", statefile);
@@ -105,7 +105,7 @@ public class JDBCImporter
                 File file = new File(statefile);
                 if (file.exists() && file.isFile() && file.canRead()) {
                     InputStream stateFileInputStream = new FileInputStream(file);
-                    settings = settingsBuilder().put(oldSettings).loadFromStream("statefile", stateFileInputStream).build();
+                    settings =  Settings.builder().put(oldSettings).loadFromStream("statefile", stateFileInputStream).build();
                     logger.info("reloaded state from {}, settings {} ", statefile, settings.getAsMap());
                 } else {
                     logger.warn("can't read from {}, skipped", statefile);
@@ -120,7 +120,7 @@ public class JDBCImporter
     @Override
     public void run(String resourceName, InputStream in) {
     	try	{
-    		Builder temp1 = settingsBuilder().loadFromStream(resourceName, in);
+    		Builder temp1 =  Settings.builder().loadFromStream(resourceName, in);
     		Settings temp2 = temp1.build();
     		setSettings(temp2);
     	} catch(Exception e) {
